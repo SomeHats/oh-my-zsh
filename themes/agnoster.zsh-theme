@@ -202,3 +202,11 @@ build_prompt() {
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
+
+TMOUT=1
+
+TRAPALRM() {
+    zle reset-prompt
+}
+
+RPROMPT='$(date "+%d/%m %H:%M:%S")'
