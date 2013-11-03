@@ -164,7 +164,9 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue black '%~'
+  cwd=$(pwd | sed -e "s/\/Users\/somehats/~/g" -e "s/\//  /g" -e "s/^ /\/ /g" -e "s/  $//g")
+
+  prompt_segment blue black $cwd
 }
 
 # Virtualenv: current working virtualenv
@@ -191,6 +193,7 @@ prompt_status() {
 
 ## Main prompt
 build_prompt() {
+  echo " "
   RETVAL=$?
   prompt_status
   prompt_virtualenv
