@@ -209,4 +209,4 @@ TRAPALRM() {
     zle reset-prompt
 }
 
-RPROMPT='$(date "+%d/%m %H:%M:%S")'
+RPROMPT='%F{cyan} $(date "+%d/%m") %F{default}%F{green} $(date "+%H:%M:%S")'
