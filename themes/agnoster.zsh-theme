@@ -164,7 +164,7 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  cwd=$(pwd | sed -e "s/\/Users\/somehats/~/g" -e "s/\//  /g" -e "s/^ /\/ /g" -e "s/  $//g")
+  cwd=$(print -P '%3~' | sed -e "s/\//  /g" -e "s/^ /\/ /g" -e "s/  $//g")
 
   prompt_segment blue black $cwd
 }
