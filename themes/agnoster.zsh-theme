@@ -206,10 +206,10 @@ build_prompt() {
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
 
-TMOUT=1
+# TMOUT=1
 
-TRAPALRM() {
-    zle reset-prompt
-}
+# TRAPALRM() {
+    # zle reset-prompt
+# }
 
 RPROMPT='%F{cyan} $(date "+%d/%m") %F{default}%F{green} $(date "+%H:%M:%S")'
