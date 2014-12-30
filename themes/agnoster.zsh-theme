@@ -186,7 +186,10 @@ prompt_status() {
   symbols=()
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
+
+  # Background Jobs:
+  ((job_count = `jobs -l | wc -l`))
+  for ((i = 0; i < $job_count; i++)); do symbols+="%{%F{cyan}%}⚙"; done;
 
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
